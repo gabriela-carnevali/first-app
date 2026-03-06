@@ -1,24 +1,44 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 
 export default function Lista02() {
+  const loja_aberta = true;
+  const tem_promocao = true;
+  const nota = 7.5;
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.titulo}>Lista 02 - GabrielaLima</Text>
 
       <View style={styles.card}>
-        <Text style={styles.label}>Exercício 1 - Operador Ternário </Text>
-        {/* TODO: sua resposta aqui */}
+        <Text style={styles.label}>Exercício 1 - Operador Ternário</Text>
+        <Text>Status: {loja_aberta ? "Aberto" : "Fechado"}</Text>
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.label}>Exercício 2 - Operador &&</Text>
+        {tem_promocao && <Text>"Promoção ativa! Aproveite os descontos.</Text>}
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.label}>
+          Exercício 3 - Condicional com Múltiplas Condições
+        </Text>
+        {nota >= 7 && nota <= 10 && <Text style={styles.textoAprovado}>Aprovado</Text>}
+        {nota >=5 && nota <7 && <Text style={styles.textoRecuperacao}>Recuperação</Text>}
+        {nota >=0 && nota <5  && <Text style={styles.textoReprovado}>Reprovado</Text>}
+
+        <Text>Nota: {nota}</Text>
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
-  container: { 
-    flex: 1, 
-    backgroundColor: "#F5F5F5", 
-    paddingTop: 60 },
+  container: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
+    paddingTop: 60,
+  },
 
   titulo: {
     fontSize: 22,
@@ -48,8 +68,27 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
 
-  texto: { 
-    fontSize: 14, 
-    color: "#424242", 
-    lineHeight: 22 },
+  texto: {
+    fontSize: 14,
+    color: "#424242",
+    lineHeight: 22,
+  },
+
+  textoAprovado: {
+    fontSize: 14,
+    color: "#15af22",
+    lineHeight: 22,
+  },
+
+  textoRecuperacao: {
+    fontSize: 14,
+    color: "#f1700d",
+    lineHeight: 22,
+  },
+
+  textoReprovado: {
+    fontSize: 14,
+    color: "#f80707",
+    lineHeight: 22,
+  },
 });

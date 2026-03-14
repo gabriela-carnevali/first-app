@@ -1,19 +1,13 @@
-import { StyleSheet, View } from 'react-native';
-import Lista02 from './jsx_examples/exercicios/Lista02';
-import Lista03 from './jsx_examples/exercicios/Lista03';
-import Lista01 from './jsx_examples/exercicios/Lista01';
-
-
-
-
-
-
-
+import { StyleSheet, Text, View } from 'react-native';
+import { ExpressoesJSX } from './jsx_examples/02_expressoes_jsx';
+import Exemplo_01 from './jsx_examples/01_estrutura_jsx';
+import Exemplo_03 from './jsx_examples/03_condicionais_jsx';
+import Exemplo_04 from './jsx_examples/04_listas_map_jsx';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Lista01/>
+      <Exemplo_04/>
     </View>
   );
 }

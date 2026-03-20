@@ -5,36 +5,32 @@ export default function ViewExemplo01() {
     <View style={styles.container}>
       <Text style={styles.titulo}>View e Flexbox</Text>
       <View style={styles.exemplo}>
-        <View style={{flexDirection: "row", gap:0}}>
+        <View style={{ flexDirection: "row", gap: 0 }}>
           <View style={styles.box}></View>
           <View style={styles.box}></View>
           <View style={styles.box}></View>
         </View>
       </View>
-      
 
-        <View style={styles.exemplo}>
-    <View 
-    style={{
-      flexDirection: "row",
-       gap:8, 
-       height: 60, 
-       width: 350, 
-       justifyContent: "center",
-       alignItems: "center"
-       }}>
-      <View style={styles.box}></View>
-      <View style={styles.box}></View>
-      <View style={styles.box}></View>
-    </View>
-    </View>
-
-    
+      <View style={styles.exemplo}>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 8,
+            height: 60,
+            width: 350,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.box}></View>
+          <View style={styles.box}></View>
+          <View style={styles.box}></View>
+        </View>
+      </View>
     </View>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {

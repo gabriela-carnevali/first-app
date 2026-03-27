@@ -8,13 +8,15 @@ import ExercicioView06 from './flebox_examples/exercicios-gabriela-lima/ex_06';
 import ExercicioView07 from './flebox_examples/exercicios-gabriela-lima/ex_07';
 import ExercicioView08 from './flebox_examples/exercicios-gabriela-lima/ex_08';
 import ExercicioView09 from './flebox_examples/exercicios-gabriela-lima/ex_09';
+import Somativa1 from './somativa/01';
+import Somativa2 from './somativa/02';
 
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ExercicioView09/>
+      <Somativa1/>
     </View>
   );
 }

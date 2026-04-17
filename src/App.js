@@ -16,7 +16,7 @@ import Somativa2 from './somativa/02';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Somativa1/>
+      <Somativa2/>
     </View>
   );
 }

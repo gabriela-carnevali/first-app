@@ -1,14 +1,15 @@
-import { Text, View, StyleSheet } from "react-native"
-export function CartaoPerfil({nome, idade}) {
+import { View, Text, StyleSheet } from "react-native";
+
+export function CartaoUsuario({nome, email}) {
     return (
-        <View style={styles.card}>
-            <Text style={styles.nome}>Nome: {nome}</Text>
-            <Text style={styles.info}>Idade: {idade}</Text>
-        </View>
+    <View style={styles.card}>
+        <Text style={styles.nome}>{nome} </Text>
+        <Text style={styles.email}> {email}</Text>
+    </View>
     )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
     card: {
         backgroundColor:'#fff',
         borderRadius: 12,
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginBottom: 4,
     },
-    info: {
+    email: {
         fontSize: 14,
         color: '#6b7280'
     }

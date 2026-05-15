@@ -1,62 +1,74 @@
-import { useState } from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Alert
+import React, { useState } from "react";
+import { 
+  View, 
+  Text, 
+  TextInput, 
+  TouchableOpacity, 
+  StyleSheet, 
+  Alert, 
+  FlatList 
 } from "react-native";
 
 export default function ListaDeCompras() {
   const [produto, setProduto] = useState("");
   const [quantidade, setQuantidade] = useState("");
-  const [produtos, setProdutos] = useState([])
+  const [produtos, setProdutos] = useState([]);
 
   function handleAdicionar() {
-    if (produto.trim() === "") {
-      Alert.alert("Atenção", "Digite o nome do produto antes de adicionar");
+    if (produto.trim() === "" || quantidade.trim() === "") {
+      Alert.alert("Atenção", "Preencha o nome e a quantidade do produto!");
       return;
-    }
-    else if (quantidade <= 0) {
-        Alert.alert("Atenção", "A quantidade precisa ser positiva")
     }
 
     const novoProduto = {
-        id: Date.now().toString(),
-        nome: produto,
-        quantidade: quantidade,
-    }
+      id: Date.now().toString(),
+      nome: produto,
+      quantidade: quantidade,
+    };
 
-    setProdutos([...produto, novoProduto])
-    setProduto("")
-    setQuantidade("")
+    setProdutos([...produtos, novoProduto]);
+
+    setProduto("");
+    setQuantidade("");
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Lista de Compras</Text>
+      <Text style={styles.titulo}>Minha Lista de Compras</Text>
 
-      <View style={styles.exemplo}>
+      <View style={styles.formulario}>
         <TextInput
           style={styles.input}
           value={produto}
           onChangeText={setProduto}
-          placeholder="Nome do produto"
+          placeholder="Nome do produto (ex: Arroz)"
         />
 
         <TextInput
           style={styles.input}
           value={quantidade}
-          keyboardType="numeric"
           onChangeText={setQuantidade}
-          placeholder="Quantidade"
+          placeholder="Quantidade (ex: 2kg ou 1un)"
+          keyboardType="default"
         />
 
         <TouchableOpacity style={styles.botao} onPress={handleAdicionar}>
-          <Text style={styles.textoBotao}>Adicionar</Text>
+          <Text style={styles.textoBotao}>Adicionar à Lista</Text>
         </TouchableOpacity>
       </View>
+
+      
+      <FlatList
+        data={produtos}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.item}>
+            <Text style={styles.itemQuantidade}>
+              {item.quantidade}x<Text style={styles.itemTexto}>{item.nome}</Text>
+            </Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -64,45 +76,51 @@ export default function ListaDeCompras() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    padding: 20,
     backgroundColor: "#f5f5f5",
+    paddingTop: 60,
   },
   titulo: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    textAlign: "center",
   },
-  subtitulo: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#4285f4",
-    marginBottom: 8,
-  },
-  exemplo: {
-    width: "80%",
-    padding: 16,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-    borderRadius: 8,
+  formulario: {
+    marginBottom: 20,
   },
   input: {
+    backgroundColor: "#fff",
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
     borderWidth: 1,
     borderColor: "#ddd",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 8,
   },
   botao: {
-    backgroundColor: "#4285f4",
-    padding: 12,
+    backgroundColor: "#2ecc71",
+    padding: 15,
     borderRadius: 8,
     alignItems: "center",
-    marginTop: 4,
   },
   textoBotao: {
     color: "#fff",
     fontWeight: "bold",
+    fontSize: 16,
+  },
+  item: {
+    backgroundColor: "#fff",
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+    elevation: 2,
+  },
+  itemTexto: {
+    fontSize: 16,
+    fontWeight: "500",
+  },
+  itemQuantidade: {
+    color: "#666",
+    fontStyle: "italic",
   },
 });
-

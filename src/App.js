@@ -1,17 +1,12 @@
 import { StyleSheet, View,Text } from 'react-native';
-import Saudacao from './props/ex3';
-import { CartaoUsuario } from './props/ex2';
-import { PerfilAluno } from './props/ex4';
-import { Botao } from './props/desafio';
+import ListaDeCompras from './flatlist/atividade/listaDeCompras';
 
 
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Botao titulo="Salvar"/>
-    </View>
+    <ListaDeCompras/>
   );
 }
 

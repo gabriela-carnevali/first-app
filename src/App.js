@@ -1,12 +1,14 @@
 import { StyleSheet, View,Text } from 'react-native';
-import ListaDeCompras from './flatlist/atividade/listaDeCompras';
-
+import { NavigationContainer } from "@react-navigation/native"
+import BottomTabNavigator from './navigation/bottom_tab_navigation';
 
 
 
 export default function App() {
   return (
-    <ListaDeCompras/>
+    <NavigationContainer>
+      <BottomTabNavigator/>
+    </NavigationContainer>
   );
 }
 
